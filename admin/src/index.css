@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+@theme {
+  --color-Primary: #3ccf4e;
+  --color-PrimaryDark: #1a1a1a;
+  --color-BackgroundLight: #fff9f0;
+  --color-NeutralGray: #a8adb5;
+  --color-AccentLime: #a9ff59;
+
+  --font-outfit: "Outfit", sans-serif;
+}
+
+/* body {
+  min-height: 100vh;
+  width: 100vw;
+} */
+
+/* a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.explore-menu-list::-webkit-scrollbar {
+  display: none;
+}*/
+
+.active {
+  /* border: 2px solid var(--color-Primary); */
+  background-color: rgb(242, 255, 242);
+  border: 1px solid var(--color-Primary);
+  border-right: 0;
+}
+
+input,
+textarea {
+  border: 1px solid gainsboro;
+  padding: 6px 10px;
+}

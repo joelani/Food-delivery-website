@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import { connectDB } from "./config/db.js";
+import foodRouter from "./routes/foodRoute.js";
 
 // Create an Express application
 const app = express();
@@ -8,6 +10,13 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+//db connection would go here
+connectDB();
+
+// api endpoints.
+app.use("/api/food", foodRouter);
+app.use("/images", express.static("uploads"));
 
 // Sample route
 app.get("/", (req, res) => {
@@ -18,3 +27,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+//=mongodb+srv://joesbill:<db_password>@cluster0.gdiufg4.mongodb.net/?
