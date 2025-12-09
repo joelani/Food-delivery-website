@@ -9,17 +9,18 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
+  const url = "http://localhost:3000";
   return (
     <div className="bg-white">
       <ToastContainer position="top-right" autoClose={3000} />
       <Navbar />
       <hr className=" h-0.5 bg-NeutralGray/75 border-none" />
-      <div className="flex mx-auto mt-18 border-b-2 border-NeutralGray shadow-2xs z-50 ">
+      <div className="flex mx-auto mt-18  shadow-2xs z-50 ">
         <Sidebar />
         <Routes>
-          <Route path="/add" element={<Add />} />
-          <Route path="/list" element={<List />} />
-          <Route path="/orders" element={<Orders />} />
+          <Route path="/add" element={<Add url={url} />} />
+          <Route path="/list" element={<List url={url} />} />
+          <Route path="/orders" element={<Orders url={url} />} />
         </Routes>
       </div>
     </div>

@@ -4,8 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Add = () => {
-  const url = "http://localhost:3000";
+const Add = ({ url }) => {
   const [image, setImage] = useState(null);
   const [data, setData] = useState({
     name: "",
@@ -48,7 +47,7 @@ const Add = () => {
   };
 
   return (
-    <div className="w-[70%] ml-[5vw] md:ml-6 mt-13">
+    <div className="w-[70%] ml-16 md:ml-64 p-5 mt-10 ">
       <form
         onSubmit={onSubmitHandler}
         className="flex flex-col gap-5 items-start "
