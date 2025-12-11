@@ -3,7 +3,7 @@ import { StoreContext } from "../context/StoreContext";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount } =
+  const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } =
     useContext(StoreContext);
   const navigate = useNavigate();
 
@@ -35,7 +35,7 @@ const Cart = () => {
               items-center text-gray-900 text-lg m-2.5"
               >
                 <img
-                  src={item.image}
+                  src={url + "/images/" + item.image}
                   alt=""
                   className="w-20 h-20 object-cover rounded-md"
                 />
@@ -56,7 +56,7 @@ const Cart = () => {
               <div className="md:hidden flex justify-between items-center">
                 <div className="flex items-center gap-3">
                   <img
-                    src={item.image}
+                    src={url + "/images/" + item.image}
                     className="w-16 h-16 object-cover rounded"
                   />
                   <div className="flex flex-col">

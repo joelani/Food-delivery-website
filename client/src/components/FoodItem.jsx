@@ -3,7 +3,8 @@ import { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
 
 const FoodItem = ({ id, name, price, description, image }) => {
-  const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+  const { cartItems, addToCart, removeFromCart, url } =
+    useContext(StoreContext);
   return (
     <div>
       <div
@@ -12,7 +13,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
       >
         <div className="relative">
           <img
-            src={image}
+            src={url + "/images/" + image}
             alt={name}
             className="w-full h-48 object-cover rounded-md mb-4"
           />
@@ -44,7 +45,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
         <div className="px-4 pb-2">
           <div className="flex justify-between items-center mb-2">
             <h3 className="text-md font-semibold mb-2 ">{name}</h3>
-            <img src={assets.rating_starts} className="w-17" alt="" />
+            <img src={assets.rating_starts} className="w-12" alt="" />
           </div>
           <p className="text-gray-600 mb-2">{description}</p>
           <p className="text-primary font-bold">${price.toFixed(2)}</p>

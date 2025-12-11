@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { assets } from "../assets/frontend_assets/assets";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../context/StoreContext";
 
 const Navbar = ({ setShowLogin }) => {
@@ -13,7 +13,14 @@ const Navbar = ({ setShowLogin }) => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const [menu, setMenu] = useState("home");
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setToken("");
+    localStorage.removeItem("token");
+    navigate("/");
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-BackgroundLight backdrop-blur-lg z-40 flex items-center justify-between px-4 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-200 transition-all ">
@@ -25,14 +32,14 @@ const Navbar = ({ setShowLogin }) => {
       {/* Desktop Nav */}
       <div className="hidden md:flex items-center gap-8">
         {navLinks.map((link, i) => (
-          <a
+          <Link
             key={i}
-            href={link.path}
+            to={link.path}
             className="font-semibold text-PrimaryDark/80 group flex flex-col gap-0.5"
           >
             {link.name}
             <span className="h-0.5 w-0 bg-PrimaryDark group-hover:w-full transition-all duration-300" />
-          </a>
+          </Link>
         ))}
       </div>
 
@@ -51,13 +58,36 @@ const Navbar = ({ setShowLogin }) => {
             }
           ></div>
         </div>
-
-        <button
-          className="px-8 py-2.5 rounded-full bg-BackgroundLight hover:bg-white text-PrimaryDark border transition"
-          onClick={() => setShowLogin(true)}
-        >
-          Sign in
-        </button>
+        {!token ? (
+          <button
+            className="px-8 py-2.5 rounded-full bg-BackgroundLight hover:bg-white text-PrimaryDark font-semibold border transition"
+            onClick={() => setShowLogin(true)}
+          >
+            Sign in
+          </button>
+        ) : (
+          <div className="relative group cursor-pointer">
+            <img src={assets.profile_icon} alt="" />
+            <ul className=" absolute top-10 right-0 w-40 bg-green-200/70 shadow-lg rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 py-1 border border-Primary outline-2 outline-Primary px-1">
+              <li className="px-2 py-2 hover:bg-GrayLight/50 flex items-center justify-center gap-2.5 cursor-pointer">
+                <img className="w-6" src={assets.bag_icon} alt="" />
+                <p className="text-PrimaryDark hover:text-Primary hover:font-semibold">
+                  Orders
+                </p>
+              </li>
+              <hr className=" h-0.5 bg-Primary/75 border-none mx-5" />
+              <li
+                onClick={handleLogout}
+                className=" px-2 py-2 hover:bg-GrayLight/50 flex items-center justify-center gap-2.5 cursor-pointer "
+              >
+                <img className="w-6" src={assets.logout_icon} alt="" />
+                <p className="text-PrimaryDark hover:text-Primary hover:font-semibold 5">
+                  Logout
+                </p>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
 
       {/* Mobile Menu Button */}
@@ -122,9 +152,21 @@ const Navbar = ({ setShowLogin }) => {
           </a>
         ))}
 
-        <button className="bg-black text-white px-8 py-2.5 rounded-full">
-          Login
-        </button>
+        {!token ? (
+          <button
+            onClick={() => setShowLogin(true)}
+            className="bg-black text-white px-8 py-2.5 rounded-full"
+          >
+            Login
+          </button>
+        ) : (
+          <button
+            onClick={handleLogout}
+            className="bg-black text-white px-8 py-2.5 rounded-full"
+          >
+            Logout
+          </button>
+        )}
       </div>
     </nav>
   );

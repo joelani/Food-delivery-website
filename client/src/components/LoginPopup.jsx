@@ -24,10 +24,10 @@ const LoginPopup = ({ setShowLogin }) => {
   const onLogin = async (e) => {
     e.preventDefault();
     let newUrl = url;
-    if (currentState === "Login") {
-      newUrl += "/api/user/login";
-    } else {
+    if (currentState === "Signup") {
       newUrl += "/api/user/register";
+    } else {
+      newUrl += "/api/user/login";
     }
 
     const response = await axios.post(newUrl, data);
@@ -53,7 +53,7 @@ const LoginPopup = ({ setShowLogin }) => {
     <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
       <form
         onSubmit={onLogin}
-        className="bg-white w-[90%] max-w-md p-6 rounded-xl shadow-lg relative"
+        className="bg-white w-[90%] max-w-80 p-6 rounded-xl shadow-lg relative"
       >
         {/* Header */}
         <div className="flex items-center justify-between mb-7">
@@ -68,7 +68,7 @@ const LoginPopup = ({ setShowLogin }) => {
         </div>
 
         {/* Inputs */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 ">
           {currentState === "Sign Up" && (
             <input
               name="name"
@@ -77,7 +77,7 @@ const LoginPopup = ({ setShowLogin }) => {
               type="text"
               placeholder="your name"
               required
-              className="border px-3 py-3 rounded-md"
+              className="border border-NeutralGray px-3 py-2 rounded-md focus:outline focus:border-Primary focus:outline-Primary"
             />
           )}
 
@@ -88,7 +88,7 @@ const LoginPopup = ({ setShowLogin }) => {
             type="email"
             placeholder="email address"
             required
-            className="border px-3 py-3 rounded-md"
+            className="border border-NeutralGray px-3 py-2 rounded-md focus:outline focus:border-Primary focus:outline-Primary"
           />
 
           <input
@@ -98,25 +98,27 @@ const LoginPopup = ({ setShowLogin }) => {
             type="password"
             placeholder="password"
             required
-            className="border px-3 py-3 rounded-md"
+            className="border border-NeutralGray px-3 py-2 rounded-md focus:outline focus:border-Primary focus:outline-Primary"
           />
 
           <button
             type="submit"
-            className="bg-Primary text-white py-3 rounded-md"
+            className="bg-Primary text-white py-2 rounded-md"
           >
             {currentState === "Sign Up" ? "Create account" : "Log in"}
           </button>
 
           {/* Footer toggle */}
-          <div className="mt-2 text-sm">
+          <div className="mt-1.5 text-sm">
             <label className="flex items-center gap-2">
               <input type="checkbox" required />
-              <span>By continuing, you agree to our terms & conditions</span>
+              <span className="text-xs">
+                By continuing, you agree to our terms & conditions
+              </span>
             </label>
 
             {currentState === "Sign Up" ? (
-              <p className="mt-4">
+              <p className="mt-1.5">
                 Already have an account?{" "}
                 <span
                   className="text-blue-600 cursor-pointer"
@@ -126,7 +128,7 @@ const LoginPopup = ({ setShowLogin }) => {
                 </span>
               </p>
             ) : (
-              <p className="mt-2">
+              <p className="mt-1">
                 Don't have an account?{" "}
                 <span
                   className="text-blue-600 cursor-pointer"
