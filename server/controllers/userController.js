@@ -4,7 +4,28 @@ import jwt from "jsonwebtoken";
 import validator from "validator";
 
 //Login user
-const loginUser = async (req, res) => {};
+const loginUser = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await userModel.findOne({ email });
+    if (!user) {
+      return res.json({ success: false, message: "User does not exist" });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.json({ success: false, message: "Invalid Credentials" });
+    }
+
+    const token = createToken(user._id);
+    res.json({ success: true, token });
+  } catch (error) {
+    console.log(error);
+    response.json({ success: false, message: "Error" || error });
+  }
+};
 
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET);
@@ -39,8 +60,8 @@ const registerUser = async (req, res) => {
 
     //Create new user
     const newUser = new userModel({
-      name,
-      email,
+      name: name,
+      email: email,
       password: hashedPassword,
     });
     const user = await newUser.save();

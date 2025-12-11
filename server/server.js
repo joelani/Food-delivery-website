@@ -5,6 +5,8 @@ import foodRouter from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
 import dotenv from "dotenv";
 
+dotenv.config();
+
 // Create an Express application
 const app = express();
 const PORT = process.env.PORT || 3000;
