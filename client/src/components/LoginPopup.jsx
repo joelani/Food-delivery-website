@@ -1,11 +1,60 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { assets } from "../assets/frontend_assets/assets";
+import { StoreContext } from "../context/StoreContext";
+import axios from "axios";
 
 const LoginPopup = ({ setShowLogin }) => {
+  const { url, setToken } = useContext(StoreContext);
   const [currentState, setCurrentState] = useState("Sign Up");
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setData((data) => ({
+      ...data,
+      [name]: value,
+    }));
+  };
+
+  const onLogin = async (e) => {
+    e.preventDefault();
+    let newUrl = url;
+    if (currentState === "Login") {
+      newUrl += "/api/user/login";
+    } else {
+      newUrl += "/api/user/register";
+    }
+
+    const response = await axios.post(newUrl, data);
+    if (response.data.success) {
+      setToken(response.data.token);
+      localStorage.setItem("token", response.data.token);
+      setShowLogin(false);
+    } else {
+      alert(response.data.message);
+    }
+  };
+
+  useEffect(() => {
+    // Reset form data when switching between states
+    setData({
+      name: "",
+      email: "",
+      password: "",
+    });
+  }, [currentState]);
+
   return (
     <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
-      <form className="bg-white w-[90%] max-w-md p-6 rounded-xl shadow-lg relative">
+      <form
+        onSubmit={onLogin}
+        className="bg-white w-[90%] max-w-md p-6 rounded-xl shadow-lg relative"
+      >
         {/* Header */}
         <div className="flex items-center justify-between mb-7">
           <h2 className="text-2xl font-semibold">{currentState}</h2>
@@ -22,6 +71,9 @@ const LoginPopup = ({ setShowLogin }) => {
         <div className="flex flex-col gap-4">
           {currentState === "Sign Up" && (
             <input
+              name="name"
+              onChange={handleChange}
+              value={data.name}
               type="text"
               placeholder="your name"
               required
@@ -30,6 +82,9 @@ const LoginPopup = ({ setShowLogin }) => {
           )}
 
           <input
+            name="email"
+            onChange={handleChange}
+            value={data.email}
             type="email"
             placeholder="email address"
             required
@@ -37,6 +92,9 @@ const LoginPopup = ({ setShowLogin }) => {
           />
 
           <input
+            name="password"
+            onChange={handleChange}
+            value={data.password}
             type="password"
             placeholder="password"
             required
