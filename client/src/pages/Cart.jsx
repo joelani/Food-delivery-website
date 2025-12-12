@@ -8,7 +8,7 @@ const Cart = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="pt-32 mb-48 px-4 md:px-16 lg:px-24 xl:px-32 max-w-[1440px] mx-auto">
+    <div className="pt-44 mb-48 px-4 md:px-16 lg:px-24 xl:px-32 max-w-[1440px] mx-auto">
       {/* -------- Cart Header -------- */}
       <div
         className="hidden md:grid grid-cols-[1fr_1fr_1fr_1fr_1fr_0.5fr] items-center 
@@ -37,7 +37,7 @@ const Cart = () => {
                 <img
                   src={url + "/images/" + item.image}
                   alt=""
-                  className="w-20 h-20 object-cover rounded-md"
+                  className="w-12 h-12 object-cover rounded-md"
                 />
                 <p>{item.name}</p>
                 <p>${item.price}</p>
