@@ -12,7 +12,7 @@ const Hero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold  text-BackgroundLight mb-4">
             Delicious Meals, Delivered To You
           </h1>
-          <p className="text-BackgroundLight max-w-96 text-lg md:text-xl mb-6">
+          <p className="text-BackgroundLight max-w-96 text-lg text-shadow-PrimaryDark text-shadow-xs md:text-xl mb-6 px-6 md:px-0">
             Experience the best food delivery service with a wide variety of
             cuisines at your fingertips.
           </p>

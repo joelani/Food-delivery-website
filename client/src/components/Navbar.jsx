@@ -97,7 +97,7 @@ const Navbar = ({ setShowLogin }) => {
       <div className="md:hidden flex items-center justify-center gap-3">
         <div className="relative">
           <Link to="/cart">
-            <img src={assets.basket_icon} className="w-4 h-4" alt="" />
+            <img src={assets.basket_icon} className="w-5 h-5" alt="" />
           </Link>
           <div
             className={
@@ -109,7 +109,7 @@ const Navbar = ({ setShowLogin }) => {
         </div>
         <svg
           onClick={() => setIsMenuOpen(true)}
-          className="h-6 w-6 cursor-pointer"
+          className="h-7 w-7 cursor-pointer"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -123,7 +123,7 @@ const Navbar = ({ setShowLogin }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center gap-6 md:hidden text-lg transition-all duration-500 ${
+        className={`fixed top-0 left-0 w-full h-screen bg-BackgroundLight flex flex-col items-center justify-center gap-6 md:hidden text-lg transition-all duration-500 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
