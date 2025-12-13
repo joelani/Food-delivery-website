@@ -166,7 +166,7 @@ const Navbar = ({ setShowLogin }) => {
 
         {!token ? (
           <button
-            onClick={() => setShowLogin(true)}
+            onClick={(() => setShowLogin(true), () => setIsMenuOpen(false))}
             className="bg-black text-white px-8 py-2.5 rounded-full"
           >
             Login

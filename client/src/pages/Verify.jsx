@@ -31,12 +31,8 @@ const Verify = () => {
       {/* spinner */}
       <div className="w-25 h-25 border-5 border-[#bdbdbd] border-t-Primary mx-auto rounded-full animate-spin"></div>
       <h1 className="text-3xl font-bold text-center mt-10">
-        Verify Your Account
+        Please wait while we verify your payment...
       </h1>
-      <p className="text-center mt-4">
-        A verification link has been sent to your email. Please check your inbox
-        and click on the link to verify your account.
-      </p>
     </div>
   );
 };
