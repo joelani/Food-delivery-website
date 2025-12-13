@@ -38,7 +38,7 @@ const Navbar = ({ setShowLogin }) => {
             className="font-semibold text-PrimaryDark/80 group flex flex-col gap-0.5"
           >
             {link.name}
-            <span className="h-0.5 w-0 bg-PrimaryDark group-hover:w-full transition-all duration-300" />
+            <span className="h-0.5 w-0 bg-Primary group-hover:w-full transition-all duration-300" />
           </Link>
         ))}
       </div>

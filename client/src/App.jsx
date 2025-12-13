@@ -9,6 +9,8 @@ import LoginPopup from "./components/LoginPopup";
 import Verify from "./pages/Verify";
 import MyOrders from "./pages/MyOrders";
 import ScrollToTop from "./components/ScrollToTop";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -17,6 +19,7 @@ const App = () => {
       {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
       <ScrollToTop />
       <div className="bg-BackgroundLight">
+        <ToastContainer position="top-right" autoClose={3000} />
         <Navbar setShowLogin={setShowLogin} />
         <Routes>
           <Route path="/" element={<Home />} />

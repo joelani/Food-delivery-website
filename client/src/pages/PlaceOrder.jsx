@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../context/StoreContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const PlaceOrder = () => {
   const navigate = useNavigate();
@@ -56,7 +57,10 @@ const PlaceOrder = () => {
     window.scrollTo(0, 0);
 
     if (!token) {
-      navigate("/cart");
+      toast.success("Please login to place order");
+      setTimeout(() => {
+        navigate("/cart");
+      }, 300);
     } else if (getTotalCartAmount() === 0) {
       navigate("/cart");
     }
