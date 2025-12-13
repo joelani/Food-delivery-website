@@ -18,6 +18,21 @@ const Orders = ({ url }) => {
       toast.error("Failed to fetch orders");
     }
   };
+
+  const statusHandler = async (event, orderId) => {
+    const response = await axios.post(url + "/api/order/status", {
+      orderId,
+      status: event.target.value,
+    });
+
+    if (response.data.success) {
+      await fetchAllOrders();
+      toast.success("Order status updated successfully");
+    } else {
+      toast.error("Failed to update order status");
+    }
+  };
+
   useEffect(() => {
     fetchAllOrders();
   }, []);
@@ -51,7 +66,7 @@ const Orders = ({ url }) => {
                 {order.address.first_name + " " + order.address.last_name}
               </p>
               <div className="flex flex-wrap gap-1 mb-2.5">
-                <p cl>{order.address.street + ", "}</p>
+                <p>{order.address.street + ", "}</p>
                 <p>
                   {order.address.city +
                     ", " +
@@ -69,12 +84,14 @@ const Orders = ({ url }) => {
               $ {order.amount}
             </p>
             <select
+              onChange={(event) => statusHandler(event, order._id)}
+              value={order.status}
               name=""
               id=""
               className="bg-Primary/20 p-2 outline-none border border-Primary max-w-[1000px]:p-2.5 max-w-[1000px]:text-sm"
             >
               <option value="Food Processing">Food Processing</option>
-              <option value="Out for delivery">Out For Delivery</option>
+              <option value="Out For Delivery">Out For Delivery</option>
               <option value="Delivered">Delivered</option>
             </select>
           </div>

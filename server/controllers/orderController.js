@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 //Placing order from frontend.
 const placeOrder = async (req, res) => {
-  const frontend_url = "http://localhost:5173";
+  const frontend_url = "http://localhost:5174";
   try {
     const newOrder = new orderModel({
       userId: req.body.userId,
@@ -119,8 +119,10 @@ const listOrders = async (req, res) => {
 // api for updating order status by admin
 const updateStatus = async (req, res) => {
   try {
-    const { orderId, status } = req.body;
-    await orderModel.findByIdAndUpdate(orderId, { status: status });
+    // const { orderId, status } = req.body;
+    await orderModel.findByIdAndUpdate(req.body.orderId, {
+      status: req.body.status,
+    });
     res
       .status(200)
       .json({ success: true, message: "Order status updated successfully" });

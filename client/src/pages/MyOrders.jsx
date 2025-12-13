@@ -58,7 +58,10 @@ const MyOrders = () => {
                   <span className="text-Primary">&#x25cf;</span>{" "}
                   <b>{order.status}</b>
                 </p>
-                <button className="py-3 rounded-sm max-[900px]:text-[10px] cursor-pointer bg-green-200 text-[#454545]">
+                <button
+                  onClick={fetchOrders}
+                  className="py-3 rounded-sm max-[900px]:text-[10px] cursor-pointer bg-green-200 text-[#454545]"
+                >
                   Track order
                 </button>
               </div>
