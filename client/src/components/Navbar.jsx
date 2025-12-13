@@ -145,15 +145,24 @@ const Navbar = ({ setShowLogin }) => {
         </button>
 
         {navLinks.map((link, i) => (
-          <a
+          <Link
             key={i}
-            href={link.path}
+            to={link.path}
             onClick={() => setIsMenuOpen(false)}
             className="text-gray-700"
           >
             {link.name}
-          </a>
+          </Link>
         ))}
+        {token && (
+          <Link
+            to="/myorders"
+            onClick={() => setIsMenuOpen(false)}
+            className="text-gray-700"
+          >
+            My orders
+          </Link>
+        )}
 
         {!token ? (
           <button

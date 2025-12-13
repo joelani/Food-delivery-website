@@ -5,12 +5,12 @@ const ExploreMenu = ({ category, setCategory }) => {
   return (
     <div className="flex flex-col gap-3 mt-8 text-PrimaryDark">
       <h1 className=" text-2xl font-semibold">Explore Our Menu</h1>
-      <p className="max-w-3/5 ">
+      <p className="md:max-w-3/5 w-full pr-6 text-PrimaryDark/80 text-lg">
         Choose from a diverse menu featuring a delectable array of dishes, Our
         mission is to satisfy your cravings and elevate your dining experience,
         one delicious meal at a time.
       </p>
-      <div className="flex justify-between items-center gap-3.5 text-center mx-10 overflow-x-scroll explore-menu-list mt-2">
+      <div className="flex justify-between items-center gap-3.5 text-center md:mx-10 mx-2 overflow-x-scroll explore-menu-list mt-2">
         {menu_list.map((item, index) => {
           return (
             <div
@@ -29,7 +29,7 @@ const ExploreMenu = ({ category, setCategory }) => {
                 } `}
                 alt={item.menu_name}
               />
-              <p className="mt-2 text-PrimaryDark text-lg max-md:text-2xl cursor-pointer ">
+              <p className="mt-2 text-PrimaryDark text-lg md:text-xl cursor-pointer ">
                 {item.menu_name}
               </p>
             </div>

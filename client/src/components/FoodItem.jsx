@@ -45,7 +45,11 @@ const FoodItem = ({ id, name, price, description, image }) => {
         <div className="px-4 pb-2">
           <div className="flex justify-between items-center mb-2">
             <h3 className="text-md font-semibold mb-2 ">{name}</h3>
-            <img src={assets.rating_starts} className="w-12" alt="" />
+            <img
+              src={assets.rating_starts}
+              className="w-12 max-md:w-14"
+              alt=""
+            />
           </div>
           <p className="text-gray-600 mb-2">{description}</p>
           <p className="text-primary font-bold">${price.toFixed(2)}</p>
