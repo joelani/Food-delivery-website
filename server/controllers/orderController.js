@@ -8,7 +8,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 //Placing order from frontend.
 const placeOrder = async (req, res) => {
-  console.log("Stripe Key:", process.env.STRIPE_SECRET_KEY);
   const frontend_url = "http://localhost:5173";
   try {
     const newOrder = new orderModel({
@@ -64,4 +63,24 @@ const placeOrder = async (req, res) => {
   }
 };
 
-export { placeOrder };
+const verifyOrder = async (req, res) => {
+  const { orderId, success } = req.body;
+  try {
+    if (success == "true") {
+      await orderModel.findByIdAndUpdate(orderId, { payment: true });
+      res
+        .status(200)
+        .json({ success: true, message: "Order confirmed successfully" });
+    } else {
+      await orderModel.findByIdAndDelete(orderId);
+      res.json({ success: false, message: "Order cancelled successfully" });
+    }
+  } catch (error) {
+    return res
+      .status(400)
+      .json({ success: false, message: "Error verifying order", error });
+    console.log("Error verifying order:", error);
+  }
+};
+
+export { placeOrder, verifyOrder };

@@ -8,7 +8,7 @@ const orderSchema = new mongoose.Schema(
     address: { type: Object, required: true },
     status: { type: String, default: "Food Processing" },
     date: { type: Date, default: Date.now },
-    paymentMethod: { type: Boolean, default: false },
+    payment: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
