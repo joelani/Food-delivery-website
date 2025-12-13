@@ -1,6 +1,7 @@
 import express from "express";
 import authMiddleware from "../middlewares/auth.js";
 import {
+  listOrders,
   placeOrder,
   userOrders,
   verifyOrder,
@@ -10,5 +11,6 @@ const orderRouter = express.Router();
 orderRouter.post("/placeorder", authMiddleware, placeOrder);
 orderRouter.post("/verify", verifyOrder);
 orderRouter.post("/userorders", authMiddleware, userOrders);
+orderRouter.get("/list", listOrders);
 
 export default orderRouter;

@@ -98,4 +98,22 @@ const userOrders = async (req, res) => {
   }
 };
 
-export { placeOrder, verifyOrder, userOrders };
+//get all orders for admin dashboard
+const listOrders = async (req, res) => {
+  try {
+    const orders = await orderModel.find({});
+    res.status(200).json({
+      success: true,
+      message: "Orders fetched successfully",
+      data: orders,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: "Error fetching orders",
+    });
+    console.log(error);
+  }
+};
+
+export { placeOrder, verifyOrder, userOrders, listOrders };

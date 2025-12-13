@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Sidebar = () => {
   return (
     <div className="fixed left-0 top-21 md:w-60 h-screen py-4 border-[1.5px] border-NeutralGray/55 border-t-0  text-md md:text-md bg-white">
-      <div className="pt-12 pl-[20%] flex flex-col gap-5">
+      <div className="pt-8 pl-[20%] flex flex-col gap-5">
         <NavLink
           to="/add"
           className="flex items-center gap-3 border border-r-0 border-NeutralGray/75 py-2 px-2.5 rounded-l-sm cursor-pointer"
