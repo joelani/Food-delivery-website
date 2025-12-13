@@ -115,7 +115,7 @@ const Navbar = ({ setShowLogin }) => {
           ></div>
         </div>
         <svg
-          onClick={handleLogin}
+          onClick={() => setIsMenuOpen(true)}
           className="h-7 w-7 cursor-pointer"
           fill="none"
           stroke="currentColor"
@@ -173,7 +173,7 @@ const Navbar = ({ setShowLogin }) => {
 
         {!token ? (
           <button
-            onClick={() => setShowLogin(true)}
+            onClick={handleLogin}
             className="bg-black text-white px-8 py-2.5 rounded-full"
           >
             Login
