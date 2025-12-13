@@ -22,13 +22,6 @@ const Navbar = ({ setShowLogin }) => {
     navigate("/");
   };
 
-  const handleLogin = () => {
-    setShowLogin(true);
-    if (setShowLogin === true) {
-      setIsMenuOpen(false);
-    }
-  };
-
   return (
     <nav className="fixed top-0 left-0 w-full bg-BackgroundLight backdrop-blur-lg z-40 flex items-center justify-between px-4 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-200 transition-all ">
       {/* Logo */}
@@ -173,7 +166,7 @@ const Navbar = ({ setShowLogin }) => {
 
         {!token ? (
           <button
-            onClick={handleLogin}
+            onClick={() => setShowLogin(true)}
             className="bg-black text-white px-8 py-2.5 rounded-full"
           >
             Login
