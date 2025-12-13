@@ -69,7 +69,7 @@ const LoginPopup = ({ setShowLogin }) => {
 
         {/* Inputs */}
         <div className="flex flex-col gap-4 ">
-          {currentState === "Sign Up" && (
+          {currentState === "Signup" && (
             <input
               name="name"
               onChange={handleChange}
@@ -105,7 +105,7 @@ const LoginPopup = ({ setShowLogin }) => {
             type="submit"
             className="bg-Primary text-white py-2 rounded-md"
           >
-            {currentState === "Sign Up" ? "Create account" : "Log in"}
+            {currentState === "Signup" ? "Create account" : "Log in"}
           </button>
 
           {/* Footer toggle */}
@@ -117,7 +117,7 @@ const LoginPopup = ({ setShowLogin }) => {
               </span>
             </label>
 
-            {currentState === "Sign Up" ? (
+            {currentState === "Signup" ? (
               <p className="mt-1.5">
                 Already have an account?{" "}
                 <span
@@ -132,7 +132,7 @@ const LoginPopup = ({ setShowLogin }) => {
                 Don't have an account?{" "}
                 <span
                   className="text-blue-600 cursor-pointer"
-                  onClick={() => setCurrentState("Sign Up")}
+                  onClick={() => setCurrentState("Signup")}
                 >
                   Sign Up
                 </span>

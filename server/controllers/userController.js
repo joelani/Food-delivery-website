@@ -34,10 +34,11 @@ const createToken = (id) => {
 //Register user
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
+  const emailLower = email.toLowerCase();
 
   try {
     //CHeck if user already exists
-    const existingUser = await userModel.findOne({ email });
+    const existingUser = await userModel.findOne({ email: emailLower });
     if (existingUser) {
       return res.json({ success: false, message: "User already exists" });
     }
@@ -61,7 +62,7 @@ const registerUser = async (req, res) => {
     //Create new user
     const newUser = new userModel({
       name: name,
-      email: email,
+      email: emailLower,
       password: hashedPassword,
     });
     const user = await newUser.save();
@@ -69,7 +70,10 @@ const registerUser = async (req, res) => {
     res.json({ success: true, token });
   } catch (error) {
     console.log("REGISTER USER ERROR:", error);
-    res.json({ success: false, message: "Please enter a valid email" });
+    res.status(500).json({
+      success: false,
+      message: "Server error during registration",
+    });
   }
 };
 
