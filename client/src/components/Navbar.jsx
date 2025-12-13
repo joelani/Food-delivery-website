@@ -69,7 +69,10 @@ const Navbar = ({ setShowLogin }) => {
           <div className="relative group cursor-pointer">
             <img src={assets.profile_icon} alt="" />
             <ul className=" absolute top-10 right-0 w-40 bg-green-200/70 shadow-lg rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 py-1 border border-Primary outline-2 outline-Primary px-1">
-              <li className="px-2 py-2 hover:bg-GrayLight/50 flex items-center justify-center gap-2.5 cursor-pointer">
+              <li
+                onClick={() => navigate("/myorders")}
+                className="px-2 py-2 hover:bg-GrayLight/50 flex items-center justify-center gap-2.5 cursor-pointer"
+              >
                 <img className="w-6" src={assets.bag_icon} alt="" />
                 <p className="text-PrimaryDark hover:text-Primary hover:font-semibold">
                   Orders

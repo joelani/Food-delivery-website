@@ -8,12 +8,14 @@ import Footer from "./components/Footer";
 import LoginPopup from "./components/LoginPopup";
 import Verify from "./pages/Verify";
 import MyOrders from "./pages/MyOrders";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
   return (
     <>
       {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
+      <ScrollToTop />
       <div className="bg-BackgroundLight">
         <Navbar setShowLogin={setShowLogin} />
         <Routes>
