@@ -20,7 +20,7 @@ const FoodDisplay = ({ category, limit = 8 }) => {
       <motion.div
         className="grid grid-cols-4 gap-6 mt-6 max-md:px-6 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
         initial="hidden"
-        whileInView="visible"
+        animate="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={{
           hidden: {},
