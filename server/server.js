@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 import connectDB from "./config/db.js";
+import healthRouter from "./routes/health.js";
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ app.use("/images", express.static("uploads"));
 app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
+app.use("/api", healthRouter);
 
 // Sample route
 // app.get("/", (req, res) => {
