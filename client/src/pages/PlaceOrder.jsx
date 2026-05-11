@@ -82,7 +82,7 @@ const PlaceOrder = () => {
               name="first_name"
               value={data.first_name}
               type="text"
-              className="p-2 border w-full border-NeutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-Primary"
+              className="p-2 border w-full border-neutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="First Name"
             />
             <input
@@ -91,7 +91,7 @@ const PlaceOrder = () => {
               name="last_name"
               value={data.last_name}
               type="text"
-              className=" p-2 border w-full border-NeutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-Primary"
+              className=" p-2 border w-full border-neutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="Last Name"
             />
           </div>
@@ -101,7 +101,7 @@ const PlaceOrder = () => {
             name="email"
             value={data.email}
             type="email"
-            className="p-2 mt-2 border w-full border-NeutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-Primary"
+            className="p-2 mt-2 border w-full border-neutral rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
             placeholder="Email address"
           />
           <input
@@ -110,7 +110,7 @@ const PlaceOrder = () => {
             name="street"
             value={data.street}
             type="text"
-            className="p-2 mt-2 border w-full border-NeutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-Primary"
+            className="p-2 mt-2 border w-full border-neutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
             placeholder="street"
           />
           <div className="w-full flex flex-col md:flex-row gap-6 items-center justify-center">
@@ -120,7 +120,7 @@ const PlaceOrder = () => {
               name="city"
               value={data.city}
               type="text"
-              className="p-2 mt-2 border w-full border-NeutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-Primary"
+              className="p-2 mt-2 border w-full border-neutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="City"
             />
             <input
@@ -129,7 +129,7 @@ const PlaceOrder = () => {
               name="state"
               value={data.state}
               type="text"
-              className="p-2 mt-2 border w-full border-NeutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-Primary"
+              className="p-2 mt-2 border w-full border-neutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="State"
             />
           </div>
@@ -140,7 +140,7 @@ const PlaceOrder = () => {
               name="zip_code"
               value={data.zip_code}
               type="text"
-              className="p-2 mt-2 border w-full border-NeutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-Primary"
+              className="p-2 mt-2 border w-full border-neutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="Zip code"
             />
             <input
@@ -149,7 +149,7 @@ const PlaceOrder = () => {
               name="country"
               value={data.country}
               type="text"
-              className="p-2 mt-2 border w-full border-NeutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-Primary"
+              className="p-2 mt-2 border w-full border-neutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="Country"
             />
           </div>
@@ -159,7 +159,7 @@ const PlaceOrder = () => {
             name="phone"
             value={data.phone}
             type="text"
-            className="p-2 mt-2 border w-full border-NeutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-Primary"
+            className="p-2 mt-2 border w-full border-neutralGray rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
             placeholder="phone"
           />
         </div>
@@ -175,13 +175,13 @@ const PlaceOrder = () => {
             <p>Subtotal</p>
             <p>{getTotalCartAmount()}</p>
           </div>
-          <hr className="h-px bg-NeutralGray/55 border-none" />
+          <hr className="h-px bg-neutralGray/55 border-none" />
 
           <div className="flex justify-between py-3">
             <p>Delivery Fee</p>
             <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
           </div>
-          <hr className="h-px bg-NeutralGray/55 border-none" />
+          <hr className="h-px bg-neutralGray/55 border-none" />
 
           <div className="flex justify-between py-3 font-semibold text-lg">
             <b>Total</b>
@@ -190,8 +190,8 @@ const PlaceOrder = () => {
 
           <button
             type="submit"
-            className=" mt-3 bg-Primary text-white py-2 px-6 rounded-md text-md max-md:text-sm
-          font-semibold hover:bg-Primary/55 hover:cursor-pointer transition"
+            className=" mt-3 bg-primary text-white py-2 px-6 rounded-md text-md max-md:text-sm
+          font-semibold hover:bg-primary/55 hover:cursor-pointer transition"
           >
             PROCEED TO PAYMENT
           </button>

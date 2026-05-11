@@ -83,7 +83,7 @@ const Cart = () => {
                   </button>
                 </div>
               </div>
-              <hr className=" h-px bg-NeutralGray/35 border-none mt-0.5" />
+              <hr className=" h-px bg-neutralGray/35 border-none mt-0.5" />
             </div>
           );
         }
@@ -99,13 +99,13 @@ const Cart = () => {
             <p>Subtotal</p>
             <p>{getTotalCartAmount()}</p>
           </div>
-          <hr className="h-px bg-NeutralGray/55 border-none" />
+          <hr className="h-px bg-neutralGray/55 border-none" />
 
           <div className="flex justify-between py-3">
             <p>Delivery Fee</p>
             <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
           </div>
-          <hr className="h-px bg-NeutralGray/55 border-none" />
+          <hr className="h-px bg-neutralGray/55 border-none" />
 
           <div className="flex justify-between py-3 font-semibold text-lg">
             <b>Total</b>
@@ -114,8 +114,8 @@ const Cart = () => {
 
           <button
             onClick={() => navigate("/order")}
-            className="w-1/2 mt-3 bg-Primary text-white py-3 rounded-lg text-lg max-md:text-sm
-          font-semibold hover:bg-Primary/55 hover:cursor-pointer transition"
+            className="w-1/2 mt-3 bg-primary text-white py-3 rounded-lg text-lg max-md:text-sm
+          font-semibold hover:bg-primary/55 hover:cursor-pointer transition"
           >
             PROCEED TO CHECKOUT
           </button>
@@ -131,12 +131,12 @@ const Cart = () => {
             <input
               type="text"
               placeholder="Promo code"
-              className="w-full border border-gray-300 px-4 py-[7px] rounded-l-lg focus:outline-none focus:ring-1 focus:ring-Primary"
+              className="w-full border border-gray-300 px-4 py-[7px] rounded-l-lg focus:outline-none focus:ring-1 focus:ring-primary"
             />
 
             <button
-              className="bg-Primary text-white px-6 py-2 rounded-r-lg font-semibold 
-            hover:bg-Primary/85 hover:cursor-pointer transition"
+              className="bg-primary text-white px-6 py-2 rounded-r-lg font-semibold 
+            hover:bg-primary/85 hover:cursor-pointer transition"
             >
               Submit
             </button>

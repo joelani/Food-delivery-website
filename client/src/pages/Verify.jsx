@@ -29,7 +29,7 @@ const Verify = () => {
   return (
     <div className="pt-44 mb-48 px-4 md:px-16 lg:px-24 xl:px-32 max-w-[1440px] mx-auto ">
       {/* spinner */}
-      <div className="w-25 h-25 border-5 border-[#bdbdbd] border-t-Primary mx-auto rounded-full animate-spin"></div>
+      <div className="w-25 h-25 border-5 border-[#bdbdbd] border-t-primary mx-auto rounded-full animate-spin"></div>
       <h1 className="text-3xl font-bold text-center mt-10">
         Please wait while we verify your payment...
       </h1>

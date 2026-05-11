@@ -17,7 +17,7 @@ const MyOrders = () => {
       {},
       {
         headers: { token, "Content-Type": "application/json" },
-      }
+      },
     );
 
     setData(response.data.data);
@@ -55,7 +55,7 @@ const MyOrders = () => {
                 <p>${order.amount}.00</p>
                 <p>Items: {order.items.length}</p>
                 <p className="font-medium text-[#454545]">
-                  <span className="text-Primary">&#x25cf;</span>{" "}
+                  <span className="text-primary">&#x25cf;</span>{" "}
                   <b>{order.status}</b>
                 </p>
                 <button
