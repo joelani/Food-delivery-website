@@ -3,7 +3,7 @@ import { assets } from "../assets/frontend_assets/assets";
 
 const Footer = () => {
   return (
-    <footer className="px-6 pt-20  md:px-16 lg:px-36 w-full text-gray-300 bg-PrimaryDark/95 ">
+    <footer className="px-6 pt-20  md:px-16 lg:px-36 w-full text-gray-300 bg-primaryDark/95 ">
       <div className="flex flex-col md:flex-row justify-between w-full gap-10 border-b border-gray-500 pb-10">
         <div className="md:max-w-96">
           <img alt="" class="h-11" src={assets.logo} />
@@ -54,17 +54,17 @@ const Footer = () => {
               <img
                 src={assets.facebook_icon}
                 alt=""
-                className="w-9 hover:scale-95 cursor-pointer "
+                className="w-6 hover:scale-95 cursor-pointer "
               />
               <img
                 src={assets.linkedin_icon}
                 alt=""
-                className="w-9 hover:scale-95 cursor-pointer"
+                className="w-7 hover:scale-95 cursor-pointer"
               />
               <img
                 src={assets.twitter_icon}
                 alt=""
-                className="w-9 hover:scale-95 cursor-pointer"
+                className="w-8 hover:scale-95 cursor-pointer"
               />
             </div>
           </div>

@@ -19,7 +19,7 @@ const FoodItem = memo(
           <img
             src={url + "/images/" + image}
             alt={name}
-            className="w-full h-48 object-cover rounded-md mb-4"
+            className="w-full h-38 object-cover rounded-md mb-4"
           />
 
           {quantity === 0 ? (
@@ -46,13 +46,13 @@ const FoodItem = memo(
         </div>
 
         <div className="px-4 pb-2">
-          <h3 className="font-semibold">{name}</h3>
-          <p>{description}</p>
-          <p className="font-bold">${price.toFixed(2)}</p>
+          <h3 className="text-lg font-medium font-plusJakarta">{name}</h3>
+          <p className="text-gray-700 text-sm">{description}</p>
+          <p className="font-semibold">${price.toFixed(2)}</p>
         </div>
       </div>
     );
-  }
+  },
 );
 
 export default FoodItem;

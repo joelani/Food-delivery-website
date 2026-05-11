@@ -7,7 +7,7 @@ const Navbar = ({ setShowLogin }) => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Menu", path: "/" },
-    { name: "Mobile app", path: "/" },
+    { name: "About", path: "/" },
     { name: "Contact us", path: "/" },
   ];
 
@@ -23,22 +23,22 @@ const Navbar = ({ setShowLogin }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-BackgroundLight backdrop-blur-lg z-40 flex items-center justify-between px-4 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-200 transition-all ">
+    <nav className="fixed top-0 left-0 right-0 w-full bg-BackgroundLight backdrop-blur-lg z-100 flex items-center justify-between px-4 md:px-16 lg:px-24 xl:px-32 py-2 border-b border-gray-200 transition-all overflow-x-clip ">
       {/* Logo */}
       <Link to="/" className="flex items-center">
-        <img src={assets.logo} className="w-28 max-md:w-24" alt="Logo" />
+        <img src={assets.logo} className="w-22 max-md:w-24" alt="Logo" />
       </Link>
 
       {/* Desktop Nav */}
-      <div className="hidden md:flex items-center gap-8">
+      <div className="hidden md:flex items-center gap-4">
         {navLinks.map((link, i) => (
           <Link
             key={i}
             to={link.path}
-            className="font-semibold text-PrimaryDark/80 group flex flex-col gap-0.5"
+            className="font-semibold text-primaryDark/80 group flex flex-col gap-0.5"
           >
             {link.name}
-            <span className="h-0.5 w-0 bg-Primary group-hover:w-full transition-all duration-300" />
+            <span className="h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-300" />
           </Link>
         ))}
       </div>
@@ -54,13 +54,13 @@ const Navbar = ({ setShowLogin }) => {
             className={
               getTotalCartAmount() === 0
                 ? ""
-                : "w-2 h-2 rounded-full bg-Primary absolute -top-1.5 -right-1.5"
+                : "w-2 h-2 rounded-full bg-primary absolute -top-1.5 -right-1.5"
             }
           ></div>
         </div>
         {!token ? (
           <button
-            className="px-8 py-2.5 rounded-full bg-BackgroundLight hover:bg-white text-PrimaryDark font-semibold border transition"
+            className="px-8 py-2.5 rounded-full bg-backgroundLight hover:bg-white text-primaryDark font-semibold border transition"
             onClick={() => setShowLogin(true)}
           >
             Sign in
@@ -68,25 +68,23 @@ const Navbar = ({ setShowLogin }) => {
         ) : (
           <div className="relative group cursor-pointer">
             <img src={assets.profile_icon} alt="" />
-            <ul className=" absolute top-10 right-0 w-40 bg-green-200/70 shadow-lg rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 py-1 border border-Primary outline-2 outline-Primary px-1">
+            <ul className=" absolute top-10 right-0 w-40 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 py-1 border border-primary px-1">
               <li
                 onClick={() => navigate("/myorders")}
                 className="px-2 py-2 hover:bg-GrayLight/50 flex items-center justify-center gap-2.5 cursor-pointer"
               >
                 <img className="w-6" src={assets.bag_icon} alt="" />
-                <p className="text-PrimaryDark hover:text-Primary hover:font-semibold">
+                <p className="text-primaryDark hover:text-primaryDark/85 ">
                   Orders
                 </p>
               </li>
-              <hr className=" h-0.5 bg-Primary/75 border-none mx-5" />
+              <hr className=" h-px bg-primary/15 border-none mx-5" />
               <li
                 onClick={handleLogout}
                 className=" px-2 py-2 hover:bg-GrayLight/50 flex items-center justify-center gap-2.5 cursor-pointer "
               >
                 <img className="w-6" src={assets.logout_icon} alt="" />
-                <p className="text-PrimaryDark hover:text-Primary hover:font-semibold 5">
-                  Logout
-                </p>
+                <p className="text-primaryDark hover:text-red-500">Logout</p>
               </li>
             </ul>
           </div>
@@ -94,8 +92,8 @@ const Navbar = ({ setShowLogin }) => {
       </div>
 
       {/* Mobile Menu Button */}
-      <div className="md:hidden flex items-center justify-center gap-3">
-        <div className="relative">
+      <div className="md:hidden flex items-center justify-center gap-3 relative z-100">
+        <div className="relative z-100">
           <Link to="/cart">
             <img src={assets.basket_icon} className="w-5 h-5" alt="" />
           </Link>
@@ -103,7 +101,7 @@ const Navbar = ({ setShowLogin }) => {
             className={
               getTotalCartAmount() === 0
                 ? ""
-                : "w-2 h-2 rounded-full bg-Primary absolute -top-1.5 -right-1.5"
+                : "w-2 h-2 rounded-full bg-primary absolute -top-1.5 -right-1.5"
             }
           ></div>
         </div>
@@ -123,7 +121,7 @@ const Navbar = ({ setShowLogin }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen bg-BackgroundLight flex flex-col items-center justify-center gap-6 md:hidden text-lg transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 w-full h-screen z-100 bg-white flex flex-col items-center justify-center gap-6 md:hidden text-lg transition-all duration-500 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
